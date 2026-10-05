@@ -2,8 +2,8 @@ import { pageMetadata } from "@/lib/seo";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Contact BillBuddy",
-  description: "Questions, bug reports or feature ideas for BillBuddy, the free GST invoice generator? Get in touch by email.",
+  title: "Contact BillBuddy – Free GST Invoice Generator Support",
+  description: "Questions, bug reports or feature ideas for BillBuddy, the free GST invoice generator? Get in touch with our team by email.",
   path: "/contact",
 });
 

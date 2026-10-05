@@ -1,7 +1,7 @@
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
-  title: "Terms of Use | BillBuddy",
+  title: "Terms of Use | BillBuddy Free GST Invoicing",
   description: "Terms of use for BillBuddy, the free GST invoice generator: acceptable use, no tax advice, and limitation of liability.",
   path: "/terms",
 });

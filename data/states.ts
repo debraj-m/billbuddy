@@ -28,7 +28,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Gujarat", code: "24" },
     title: "GST Invoice Format for Maharashtra (State Code 27) | BillBuddy",
     description:
-      "GST invoice format for Maharashtra businesses and freelancers: state code 27, CGST+SGST vs IGST for Mumbai and Pune sellers, mandatory fields and a free generator.",
+      "GST invoice format for Maharashtra freelancers: state code 27, CGST+SGST vs IGST for Mumbai and Pune sellers, mandatory fields and a free generator.",
     intro: [
       "Maharashtra is where most Indian head offices live, which makes it the state where invoicing mistakes are most expensive. If you work from Pune or Nashik but your client is a Mumbai company, you are in the same state and charge CGST plus SGST. If that same company contracts you through its Bengaluru branch, the supply is inter-state and the right tax is IGST.",
       "Every GSTIN issued in Maharashtra begins with 27, and that two-digit prefix is what both you and your client's accounts team will use to decide the tax split. This page shows a ready-to-edit GST invoice for a Maharashtra seller, with the place-of-supply logic worked through for a Mumbai and an Ahmedabad client.",
@@ -67,7 +67,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Tamil Nadu", code: "33" },
     title: "GST Invoice Format for Karnataka (State Code 29) | BillBuddy",
     description:
-      "GST invoice format for Karnataka freelancers and startups in Bengaluru: state code 29, IGST on clients in Maharashtra or Tamil Nadu, SEZ billing and a free PDF tool.",
+      "GST invoice format for Karnataka freelancers in Bengaluru: state code 29, IGST on clients in Maharashtra or Tamil Nadu, SEZ rules and a free PDF tool.",
     intro: [
       "Bengaluru is full of freelancers and small studios selling services to clients in every other state, and most of those sales are inter-state. A Bengaluru developer billing a Mumbai start-up charges IGST, not CGST plus SGST, and the invoice needs to say so clearly. Only when the client is also registered in Karnataka does the tax split into CGST and SGST.",
       "Karnataka's GST state code is 29, so every GSTIN registered in the state starts with those digits. This guide walks through the Karnataka invoice with a Chennai client, so you can see exactly how IGST is shown, and what to change when the client is in Mysuru instead.",
@@ -106,7 +106,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Haryana", code: "06" },
     title: "GST Invoice Format for Delhi (State Code 07) | BillBuddy",
     description:
-      "GST invoice format for Delhi (NCR) freelancers and small businesses: state code 07, CGST+SGST within Delhi, IGST for Gurugram and Noida clients. Free PDF generator.",
+      "GST invoice format for Delhi freelancers and small businesses: state code 07, CGST+SGST within Delhi, IGST for Gurugram and Noida. Free PDF generator.",
     intro: [
       "Delhi's tricky feature is geography. A freelancer in South Delhi can have clients in Gurugram, Noida and Faridabad, all within a short drive but each in a different state for GST purposes. A Delhi seller invoicing a Gurugram company is making an inter-state supply and must charge IGST, even though the client is a twenty-minute drive away.",
       "Delhi's GST state code is 07, and GSTINs issued here start with 07. The example on this page shows a Delhi seller billing a Haryana client with IGST applied, so the NCR boundary issue is visible on the actual invoice.",
@@ -145,7 +145,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Kerala", code: "32" },
     title: "GST Invoice Format for Tamil Nadu (State Code 33) | BillBuddy",
     description:
-      "GST invoice format for Tamil Nadu sellers: state code 33, CGST+SGST for Chennai and Coimbatore clients, IGST to Kerala and Karnataka, MSME payment notes. Free generator.",
+      "GST invoice format for Tamil Nadu sellers: state code 33, CGST+SGST for Chennai and Coimbatore, IGST to Kerala and Karnataka, and a free PDF generator.",
     intro: [
       "Tamil Nadu's economy is unusually spread out. Chennai runs services and IT, Coimbatore and Tiruppur run manufacturing and textiles, and Madurai supports a large regional trade. A freelancer serving small manufacturers often has clients who are micro or small enterprises, which makes payment timing as much a part of the invoice as the tax.",
       "Every GSTIN registered in Tamil Nadu starts with 33. This page covers the intra-state invoice (Chennai to Coimbatore, where CGST and SGST apply) with a note on payment terms for MSME clients. It also shows what changes when the client sits in neighbouring Kerala or Karnataka.",
@@ -223,7 +223,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Maharashtra", code: "27" },
     title: "GST Invoice Format for Gujarat (State Code 24) | BillBuddy",
     description:
-      "GST invoice format for Gujarat sellers and traders: state code 24, Ahmedabad and Surat invoicing, GIFT City SEZ rules and IGST to Maharashtra. Free PDF generator.",
+      "GST invoice format for Gujarat sellers and traders: state code 24, Ahmedabad and Surat invoicing, GIFT City rules and IGST to Mumbai. Free generator.",
     intro: [
       "Gujarat is a trading state, and invoicing here is dominated by small firms selling both goods and services, often to buyers who are themselves registered traders. For them, an invoice is also a purchase record: the buyer needs your GSTIN, the right HSN or SAC code and the right split of tax to claim input credit without a fuss.",
       "Gujarat's GST state code is 24. A seller in Surat billing an Ahmedabad customer charges CGST and SGST; billing a Mumbai customer is IGST. Gujarat has one special wrinkle worth knowing about: GIFT City in Gandhinagar is a Special Economic Zone, so supplies to units there are treated as inter-state even though they are inside Gujarat.",
@@ -262,7 +262,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Odisha", code: "21" },
     title: "GST Invoice Format for West Bengal (State Code 19) | BillBuddy",
     description:
-      "GST invoice format for West Bengal: state code 19, Kolkata freelancer invoicing, CGST+SGST within the state, IGST to Odisha and Assam clients. Free PDF generator.",
+      "GST invoice format for West Bengal: state code 19, Kolkata freelancer invoicing, CGST+SGST within the state, IGST to Odisha and Assam. Free generator.",
     intro: [
       "Kolkata has a long tradition of publishing, translation, design and professional services, and many of its freelancers sell to clients in the eastern and north-eastern states. That makes inter-state billing a routine event for a West Bengal seller, not the exception.",
       "West Bengal's GST state code is 19. A Kolkata seller billing a Siliguri client charges CGST and SGST; billing a Bhubaneswar client means IGST. The example on this page shows the Odisha case, and explains how to document it so the client's accounts team can claim credit on the first try.",
@@ -301,7 +301,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Delhi", code: "07" },
     title: "GST Invoice Format for Uttar Pradesh (State Code 09) | BillBuddy",
     description:
-      "GST invoice format for Uttar Pradesh sellers: state code 09, Noida and Lucknow freelancer invoicing, IGST to Delhi clients, and not mixing up 09 with 05. Free PDF tool.",
+      "GST invoice format for Uttar Pradesh sellers: state code 09, Noida and Lucknow freelancer invoicing, IGST to Delhi clients, and free PDF generator.",
     intro: [
       "Noida and Ghaziabad make Uttar Pradesh a large part of the Delhi NCR economy, and a freelancer in Sector 62 may spend all day with Delhi clients while still being a UP seller for GST. That means almost every NCR invoice from Noida is inter-state: IGST, not CGST plus SGST.",
       "Uttar Pradesh's GST state code is 09, and it is easy to confuse with Uttarakhand, which is 05 and was carved out of UP in 2000. This page shows a Noida seller billing a Delhi client with IGST, explains where the confusion comes from and what to check on your client's GSTIN to avoid it.",
@@ -340,7 +340,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Tamil Nadu", code: "33" },
     title: "GST Invoice Format for Kerala (State Code 32) | BillBuddy",
     description:
-      "GST invoice format for Kerala freelancers: state code 32, Kochi and Thiruvananthapuram invoicing, Gulf and NRI clients as exports, IGST to Tamil Nadu. Free generator.",
+      "GST invoice format for Kerala freelancers: state code 32, Kochi and Trivandrum invoicing, Gulf client export rules, IGST to Tamil Nadu. Free tool.",
     intro: [
       "Kerala has a distinctive client mix: a strong local services economy in Kochi and Thiruvananthapuram, and a large diaspora in the Gulf, the UK and North America. A Kerala freelancer is therefore likely to be billing both domestic clients and foreign ones, and the two cases need completely different invoices.",
       "Kerala's GST state code is 32. For a domestic client in another state, such as Tamil Nadu, you charge IGST. For a client abroad paying in foreign exchange, the supply is usually an export of services and can be invoiced without GST under a Letter of Undertaking. This page shows the domestic invoice, with notes on switching to an export invoice.",
@@ -379,7 +379,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Delhi", code: "07" },
     title: "GST Invoice Format for Rajasthan (State Code 08) | BillBuddy",
     description:
-      "GST invoice format for Rajasthan: state code 08, Jaipur freelancer and event-service invoicing, CGST+SGST within the state, IGST to Delhi clients. Free PDF generator.",
+      "GST invoice format for Rajasthan: state code 08, Jaipur freelancer invoicing, CGST+SGST within the state, IGST to Delhi clients. Free PDF generator.",
     intro: [
       "Jaipur, Jodhpur and Udaipur run on tourism, handicrafts, destination weddings and a growing remote-work scene. Photographers, planners, designers and marketers in these cities often do work that is physically in Rajasthan for clients who live in Delhi, Mumbai or abroad. That makes place of supply the main question on a Rajasthan invoice.",
       "Rajasthan's GST state code is 08. For services to a registered business, the place of supply is usually where the client is located, not where you did the work. A Jaipur planner billing a Delhi company for a Udaipur event therefore charges IGST. The example here walks through that case with the event details on the invoice.",
@@ -418,7 +418,7 @@ export const stateGuides: StateGuide[] = [
     partner: { name: "Delhi", code: "07" },
     title: "GST Invoice Format for Haryana (State Code 06) | BillBuddy",
     description:
-      "GST invoice format for Haryana: state code 06, Gurugram and Faridabad invoicing, IGST on Delhi clients, corporate vendor onboarding tips. Free GST invoice generator.",
+      "GST invoice format for Haryana: state code 06, Gurugram and Faridabad invoicing, IGST on Delhi clients, corporate vendor onboarding. Free generator.",
     intro: [
       "Gurugram is a corporate city. Consulting firms, call centres, fintechs and Fortune 500 offices sit side by side, and vendors who work with them quickly learn that large companies have strict vendor onboarding and invoice checks. A GST invoice that is slightly off is more likely to be rejected here than anywhere else.",
       "Haryana's GST state code is 06. A Gurugram freelancer billing a Gurugram company charges CGST and SGST, while billing a Delhi company is inter-state and carries IGST. The example below shows the corporate case, including a PO number and the details that a Gurugram accounts payable team will look for.",

@@ -7,7 +7,7 @@ import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "GST & Invoicing Blog for Indian Freelancers | BillBuddy",
-  description: "Practical guides on GST invoices, CGST/SGST/IGST, HSN and SAC codes, exports under LUT and getting paid on time, written for Indian freelancers and small businesses.",
+  description: "Practical guides on GST invoices, CGST/SGST/IGST, HSN/SAC codes, exports under LUT and getting paid on time, written for Indian freelancers and consultants.",
   path: "/blog",
 });
 

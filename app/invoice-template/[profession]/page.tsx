@@ -104,11 +104,11 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
           <Link href="/blog/cgst-sgst-igst-when-each-applies">CGST vs SGST vs IGST</Link> for the full rules, or see how invoicing works{" "}
           {stateGuide ? (
             <>
-              in <Link href={`/gst-invoice-format/${stateGuide.slug}`}>{stateGuide.name}</Link>.
+              in our <Link href={`/gst-invoice-format/${stateGuide.slug}`}>{stateGuide.name} GST invoice format guide (state code {stateGuide.code})</Link>.
             </>
           ) : (
             <>
-              across <Link href="/gst-invoice-format">Indian states</Link>.
+              across our <Link href="/gst-invoice-format">state-wise GST invoice format guides</Link>.
             </>
           )}
         </p>
@@ -149,6 +149,25 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
             </li>
           ))}
         </ul>
+      </section>
+
+      <section className="mt-10">
+        <h2 className="mb-3 text-xl font-bold">State GST invoice format guides for {p.name.toLowerCase()}s</h2>
+        <p className="mb-4 text-sm text-slate-600">
+          Invoicing clients in different states requires applying the right place of supply, state code, and tax split. Check state-specific GST guides for {p.name.toLowerCase()}s:
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {stateGuides.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/gst-invoice-format/${s.slug}`}
+              className="surface lift block p-3.5 text-sm"
+            >
+              <span className="font-semibold text-slate-900 block">{s.name} GST invoice format</span>
+              <span className="mt-1 text-xs text-slate-500 block">State code {s.code} · Hubs: {s.hubs.slice(0, 2).join(", ")}</span>
+            </Link>
+          ))}
+        </div>
       </section>
     </article>
   );
