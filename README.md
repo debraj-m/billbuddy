@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BillBuddy
 
-## Getting Started
+Free GST invoice generator for Indian freelancers and small businesses. Everything runs in the browser: no database, no auth, no server-side storage of invoice data.
 
-First, run the development server:
+## What's inside
+
+- **Generator** (`/generator`): seller/buyer details, GSTIN and PAN validation, line items with HSN/SAC, discount and GST rate, automatic CGST+SGST vs IGST, amount in words (lakh/crore), live preview, three templates (Classic, Modern, Minimal), PDF download via `@react-pdf/renderer`, drafts saved to `localStorage`.
+- **Programmatic SEO**: `/invoice-template/[profession]` (16 professions, `data/professions.ts`) and `/gst-invoice-format/[state]` (12 states, `data/states.ts`), each with unique copy, an example invoice, FAQs and FAQ JSON-LD.
+- **Blog**: six MDX guides in `content/blog` (frontmatter: title, description, date, slug, tags), related posts and CTAs.
+- **Technical SEO**: per-page metadata, canonical URLs, Open Graph/Twitter cards (dynamic `/og` image), `app/sitemap.ts`, `app/robots.ts`, JSON-LD (Organization, WebApplication, Article, FAQPage, BreadcrumbList), Search Console meta tag, GA4 events (`generator_started`, `pdf_downloaded`, `template_changed`).
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # optional, see below
+npm run dev                  # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Other scripts: `npm run build`, `npm start`, `npm run lint`, `npm run typecheck`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Purpose |
+| --- | --- |
+| `NEXT_PUBLIC_SITE_URL` | Canonical origin (e.g. `https://billbuddy.example`). Used for canonicals, sitemap, OG. Falls back to `VERCEL_PROJECT_PRODUCTION_URL`, then `https://billbuddy.vercel.app`. |
+| `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console HTML-tag token. Renders `<meta name="google-site-verification">`. |
+| `NEXT_PUBLIC_GA_ID` | GA4 measurement ID (`G-XXXXXXXXXX`). Analytics is off when empty. |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Address shown on the contact and privacy pages. |
 
-## Learn More
+## Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+app/            routes, sitemap, robots, /og image route
+components/     shared UI; components/generator/ holds form, preview and PDF
+data/           professions.ts and states.ts (programmatic SEO content)
+content/blog/   MDX posts
+lib/            GST maths, validation, number-to-words, SEO helpers, blog loader
+public/fonts/   Noto Sans/Serif (needed so the rupee sign renders in PDFs)
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Notes
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- GST rate options are 0/5/12/18/28 plus 40 (the slab added in the 2025 rate rationalisation). Check current rates before relying on any invoice.
+- GSTIN validation checks format and state code only; it does not verify the number with the GST portal.
+- BillBuddy is a tool, not tax advice.
