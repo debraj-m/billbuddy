@@ -2,7 +2,7 @@ import { pageMetadata } from "@/lib/seo";
 import { CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata = pageMetadata({
-  title: "Privacy Policy | BillBuddy",
+  title: "Privacy Policy | BillBuddy Free GST Invoicing",
   description: "How BillBuddy handles your data: invoices are created in your browser and never uploaded. Details on local storage and Google Analytics.",
   path: "/privacy",
 });

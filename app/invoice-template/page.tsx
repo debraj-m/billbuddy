@@ -3,11 +3,12 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Cta } from "@/components/Cta";
 import { JsonLd } from "@/components/JsonLd";
 import { professions } from "@/data/professions";
+import { stateGuides } from "@/data/states";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "Free GST Invoice Templates by Profession | BillBuddy",
-  description: "Browse free GST invoice templates for web developers, designers, photographers, writers, consultants, tutors and more. Prefilled examples you can edit and download as PDF.",
+  description: "Free GST invoice templates for web developers, designers, writers, consultants and tutors. Prefilled examples you can edit and download as PDF.",
   path: "/invoice-template",
 });
 
@@ -35,6 +36,20 @@ export default function Page() {
           </li>
         ))}
       </ul>
+      <section className="mt-14 border-t border-slate-200 pt-10">
+        <h2 className="text-2xl font-bold tracking-tight">GST invoice format by state</h2>
+        <p className="mt-2 text-slate-600">
+          Invoicing a client in another Indian state? Check place-of-supply rules, state codes, and CGST/SGST vs IGST splits for each state:
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {stateGuides.map((s) => (
+            <Link key={s.slug} href={`/gst-invoice-format/${s.slug}`} className="surface lift block p-4">
+              <span className="font-semibold text-slate-900 block">{s.name} GST invoice format</span>
+              <span className="mt-1 text-xs text-slate-500 block">State code {s.code} · Hubs: {s.hubs.slice(0, 3).join(", ")}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
       <Cta />
     </div>
   );

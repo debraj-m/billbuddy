@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { Cta } from "@/components/Cta";
 import { JsonLd } from "@/components/JsonLd";
+import { professions } from "@/data/professions";
 import { stateGuides } from "@/data/states";
 import { breadcrumbJsonLd, pageMetadata } from "@/lib/seo";
 
@@ -35,6 +36,20 @@ export default function Page() {
           </li>
         ))}
       </ul>
+      <section className="mt-14 border-t border-slate-200 pt-10">
+        <h2 className="text-2xl font-bold tracking-tight">GST invoice templates by profession</h2>
+        <p className="mt-2 text-slate-600">
+          Looking for profession-specific SAC codes and sample line items? Browse prefilled GST invoice templates:
+        </p>
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {professions.map((p) => (
+            <Link key={p.slug} href={`/invoice-template/${p.slug}`} className="surface lift block p-4">
+              <span className="font-semibold text-slate-900 block">{p.name} GST invoice template</span>
+              <span className="mt-1 text-xs text-slate-500 block">SAC {p.sac[0].code} · {p.sac[0].label.split("(")[0].trim()}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
       <Cta />
     </div>
   );

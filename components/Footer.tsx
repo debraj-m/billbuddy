@@ -34,7 +34,7 @@ export function Footer() {
             {stateGuides.slice(0, 6).map((s) => (
               <li key={s.slug}>
                 <Link className="hover:text-teal-600" href={`/gst-invoice-format/${s.slug}`}>
-                  {s.name}
+                  {s.name} GST format
                 </Link>
               </li>
             ))}

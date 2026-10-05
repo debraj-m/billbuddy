@@ -36,7 +36,7 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
   const intra = calcLine(sample, true);
   const inter = calcLine(sample, false);
   const posts = getAllPosts().filter((x) => s.blog.includes(x.slug));
-  const others = stateGuides.filter((x) => x.slug !== s.slug).slice(0, 6);
+  const others = stateGuides.filter((x) => x.slug !== s.slug);
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "GST invoice format by state", path: "/gst-invoice-format" },
@@ -111,16 +111,22 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
       <FaqList faqs={s.faqs} heading={`${s.name} GST invoice FAQs`} />
 
       <section className="mt-12">
-        <h2 className="mb-3 text-xl font-bold">Invoice templates by profession</h2>
-        <ul className="flex flex-wrap gap-2">
-          {professions.slice(0, 8).map((p) => (
-            <li key={p.slug}>
-              <Link className="rounded-full border border-teal-200 bg-white px-4 py-1.5 text-sm font-medium shadow-sm hover:border-teal-500 hover:text-teal-800" href={`/invoice-template/${p.slug}`}>
-                {p.name}
-              </Link>
-            </li>
+        <h2 className="mb-3 text-xl font-bold">GST invoice templates for {s.name} freelancers & consultants</h2>
+        <p className="mb-4 text-sm text-slate-600">
+          Invoicing clients in {s.name} or other states? Choose your profession for prefilled SAC codes, line item descriptions, and tax rules:
+        </p>
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {professions.map((p) => (
+            <Link
+              key={p.slug}
+              href={`/invoice-template/${p.slug}`}
+              className="surface lift block p-3.5 text-sm"
+            >
+              <span className="font-semibold text-slate-900 block">{p.name} GST invoice</span>
+              <span className="mt-1 text-xs text-slate-500 block">SAC {p.sac[0]?.code} · {p.sac[0]?.label.split("(")[0].trim()}</span>
+            </Link>
           ))}
-        </ul>
+        </div>
       </section>
 
       {posts.length > 0 && (
@@ -139,12 +145,12 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
       )}
 
       <section className="mt-10">
-        <h2 className="mb-3 text-xl font-bold">Other states</h2>
+        <h2 className="mb-3 text-xl font-bold">Other state GST invoice formats</h2>
         <ul className="flex flex-wrap gap-2">
           {others.map((o) => (
             <li key={o.slug}>
               <Link className="rounded-full border border-teal-200 bg-white px-4 py-1.5 text-sm font-medium shadow-sm hover:border-teal-500 hover:text-teal-800" href={`/gst-invoice-format/${o.slug}`}>
-                {o.name}
+                {o.name} format ({o.code})
               </Link>
             </li>
           ))}
