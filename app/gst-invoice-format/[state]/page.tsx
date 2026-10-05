@@ -53,29 +53,29 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
           <p key={para.slice(0, 24)}>{para}</p>
         ))}
       </div>
-      <Link href="/generator" className="mt-2 inline-block rounded-lg bg-indigo-600 px-5 py-3 font-semibold text-white hover:bg-indigo-700">
+      <Link href="/generator" className="mt-2 inline-block rounded-full bg-teal-700 px-6 py-3 font-semibold text-white shadow-md shadow-teal-900/15 hover:bg-teal-800">
         Create a {s.name} GST invoice →
       </Link>
 
       <section className="mt-12">
         <h2 className="mb-2 text-2xl font-bold tracking-tight">{s.name} tax split at a glance</h2>
-        <p className="mb-4 max-w-3xl text-slate-600 dark:text-slate-400">
+        <p className="mb-4 max-w-3xl text-slate-600">
           For a ₹{formatINR(sample.rate)} service at 18% GST, here is what appears on the invoice depending on where the client is.
         </p>
         <div className="grid gap-4 sm:grid-cols-2">
-          <div className="rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+          <div className="surface p-4">
             <h3 className="font-semibold">Client in {s.name} (same state)</h3>
             <dl className="mt-2 space-y-1 text-sm">
               <div className="flex justify-between"><dt>CGST 9%</dt><dd>₹{formatINR(intra.cgst)}</dd></div>
               <div className="flex justify-between"><dt>SGST 9%</dt><dd>₹{formatINR(intra.sgst)}</dd></div>
-              <div className="flex justify-between border-t border-slate-200 pt-1 font-semibold dark:border-slate-800"><dt>Invoice total</dt><dd>₹{formatINR(intra.total)}</dd></div>
+              <div className="flex justify-between border-t border-slate-200 pt-1 font-semibold"><dt>Invoice total</dt><dd>₹{formatINR(intra.total)}</dd></div>
             </dl>
           </div>
-          <div className="rounded-xl border border-slate-200 p-4 dark:border-slate-800">
+          <div className="surface p-4">
             <h3 className="font-semibold">Client in {s.partner.name} (state code {s.partner.code})</h3>
             <dl className="mt-2 space-y-1 text-sm">
               <div className="flex justify-between"><dt>IGST 18%</dt><dd>₹{formatINR(inter.igst)}</dd></div>
-              <div className="flex justify-between border-t border-slate-200 pt-1 font-semibold dark:border-slate-800"><dt>Invoice total</dt><dd>₹{formatINR(inter.total)}</dd></div>
+              <div className="flex justify-between border-t border-slate-200 pt-1 font-semibold"><dt>Invoice total</dt><dd>₹{formatINR(inter.total)}</dd></div>
             </dl>
           </div>
         </div>
@@ -84,7 +84,7 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
 
       <section className="mt-12">
         <h2 className="mb-2 text-2xl font-bold tracking-tight">Example invoice from {s.name}</h2>
-        <p className="mb-4 max-w-3xl text-slate-600 dark:text-slate-400">
+        <p className="mb-4 max-w-3xl text-slate-600">
           {s.example.sellerName} invoices {s.example.buyerName} in {view.buyerState}. The tax is {view.intra ? "CGST and SGST" : "IGST"} and the total is ₹{formatINR(view.totals.grandTotal)}.
         </p>
         <ExampleInvoicePreview example={s.example} label={`Example GST invoice from ${s.name}`} />
@@ -115,7 +115,7 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
         <ul className="flex flex-wrap gap-2">
           {professions.slice(0, 8).map((p) => (
             <li key={p.slug}>
-              <Link className="rounded-full border border-slate-300 px-4 py-1.5 text-sm hover:border-indigo-500 hover:text-indigo-600 dark:border-slate-700" href={`/invoice-template/${p.slug}`}>
+              <Link className="rounded-full border border-teal-200 bg-white px-4 py-1.5 text-sm font-medium shadow-sm hover:border-teal-500 hover:text-teal-800" href={`/invoice-template/${p.slug}`}>
                 {p.name}
               </Link>
             </li>
@@ -129,7 +129,7 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
           <ul className="space-y-2">
             {posts.map((x) => (
               <li key={x.slug}>
-                <Link className="text-indigo-600 hover:underline dark:text-indigo-400" href={`/blog/${x.slug}`}>
+                <Link className="text-teal-600 hover:underline" href={`/blog/${x.slug}`}>
                   {x.title}
                 </Link>
               </li>
@@ -143,7 +143,7 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
         <ul className="flex flex-wrap gap-2">
           {others.map((o) => (
             <li key={o.slug}>
-              <Link className="rounded-full border border-slate-300 px-4 py-1.5 text-sm hover:border-indigo-500 hover:text-indigo-600 dark:border-slate-700" href={`/gst-invoice-format/${o.slug}`}>
+              <Link className="rounded-full border border-teal-200 bg-white px-4 py-1.5 text-sm font-medium shadow-sm hover:border-teal-500 hover:text-teal-800" href={`/gst-invoice-format/${o.slug}`}>
                 {o.name}
               </Link>
             </li>

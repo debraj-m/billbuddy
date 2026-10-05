@@ -13,7 +13,7 @@ export function exampleView(ex: ExampleInvoice, template: TemplateId = "modern")
 export function ExampleInvoicePreview({ example, template, label }: { example: ExampleInvoice; template?: TemplateId; label: string }) {
   const view = exampleView(example, template);
   return (
-    <div className="overflow-hidden rounded-lg border border-slate-300 bg-slate-100 shadow dark:border-slate-700">
+    <div className="mx-auto max-w-[860px] overflow-hidden rounded-lg border border-slate-300 bg-slate-100 shadow">
       <ScaledPreview label={label}>
         <InvoicePreview view={view} />
       </ScaledPreview>

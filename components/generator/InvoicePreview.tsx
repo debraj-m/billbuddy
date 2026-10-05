@@ -9,8 +9,8 @@ const THEMES: Record<
   { font: string; accent: string; headBg: string; headFg: string; rule: string }
 > = {
   classic: { font: "Georgia, 'Times New Roman', serif", accent: "#111111", headBg: "#f0f0f0", headFg: "#111", rule: "#111" },
-  modern: { font: "var(--font-inter), system-ui, sans-serif", accent: "#4f46e5", headBg: "#4f46e5", headFg: "#fff", rule: "#e5e7eb" },
-  minimal: { font: "var(--font-inter), system-ui, sans-serif", accent: "#111111", headBg: "transparent", headFg: "#111", rule: "#d4d4d8" },
+  modern: { font: "var(--font-body), system-ui, sans-serif", accent: "#0f766e", headBg: "#0f766e", headFg: "#fff", rule: "#e5e7eb" },
+  minimal: { font: "var(--font-body), system-ui, sans-serif", accent: "#111111", headBg: "transparent", headFg: "#111", rule: "#d4d4d8" },
 };
 
 export const PREVIEW_WIDTH = 794;

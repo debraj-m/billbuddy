@@ -62,16 +62,16 @@ export default async function PostPage({ params }: PageProps<"/blog/[slug]">) {
         <ul className="space-y-3">
           {related.map((r) => (
             <li key={r.slug}>
-              <Link href={`/blog/${r.slug}`} className="font-medium text-indigo-600 hover:underline dark:text-indigo-400">
+              <Link href={`/blog/${r.slug}`} className="font-medium text-teal-600 hover:underline">
                 {r.title}
               </Link>
-              <p className="text-sm text-slate-600 dark:text-slate-400">{r.description}</p>
+              <p className="text-sm text-slate-600">{r.description}</p>
             </li>
           ))}
         </ul>
-        <p className="mt-6 text-sm text-slate-600 dark:text-slate-400">
-          Looking for a ready-made format? Browse <Link className="text-indigo-600 hover:underline" href="/invoice-template">invoice templates by profession</Link> or{" "}
-          <Link className="text-indigo-600 hover:underline" href="/gst-invoice-format">GST invoice formats by state</Link>.
+        <p className="mt-6 text-sm text-slate-600">
+          Looking for a ready-made format? Browse <Link className="text-teal-600 hover:underline" href="/invoice-template">invoice templates by profession</Link> or{" "}
+          <Link className="text-teal-600 hover:underline" href="/gst-invoice-format">GST invoice formats by state</Link>.
         </p>
       </section>
     </article>

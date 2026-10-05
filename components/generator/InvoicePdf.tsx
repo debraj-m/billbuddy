@@ -26,7 +26,7 @@ function registerFonts() {
 
 const THEMES: Record<TemplateId, { font: string; accent: string; headBg: string; headFg: string; rule: string }> = {
   classic: { font: "NotoSerif", accent: "#111111", headBg: "#f0f0f0", headFg: "#111111", rule: "#111111" },
-  modern: { font: "NotoSans", accent: "#4f46e5", headBg: "#4f46e5", headFg: "#ffffff", rule: "#e5e7eb" },
+  modern: { font: "NotoSans", accent: "#0f766e", headBg: "#0f766e", headFg: "#ffffff", rule: "#e5e7eb" },
   minimal: { font: "NotoSans", accent: "#111111", headBg: "#ffffff", headFg: "#111111", rule: "#d4d4d8" },
 };
 

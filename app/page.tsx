@@ -1,5 +1,7 @@
 import Link from "next/link";
+import { ExampleInvoicePreview } from "@/components/ExampleInvoice";
 import { FaqList } from "@/components/Faq";
+import { Cta } from "@/components/Cta";
 import { JsonLd } from "@/components/JsonLd";
 import { professions } from "@/data/professions";
 import { stateGuides } from "@/data/states";
@@ -37,70 +39,104 @@ const faqs: Faq[] = [
 
 export default function Home() {
   const posts = getAllPosts().slice(0, 3);
+  const showcase = professions[0];
   return (
     <>
       <JsonLd data={faqJsonLd(faqs)} />
-      <section className="bg-gradient-to-b from-indigo-50 to-white dark:from-indigo-950/40 dark:to-transparent">
-        <div className="mx-auto max-w-4xl px-4 py-16 text-center sm:py-24">
-          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Free GST invoice generator for Indian freelancers</h1>
-          <p className="mx-auto mt-5 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-            Create a professional, GST-ready invoice in two minutes. Automatic CGST/SGST/IGST, amount in words and instant PDF. No sign-up, and your data never leaves your browser.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Link href="/generator" className="rounded-lg bg-indigo-600 px-6 py-3 text-base font-semibold text-white shadow hover:bg-indigo-700">
-              Create an invoice
-            </Link>
-            <Link href="/invoice-template" className="rounded-lg border border-slate-300 px-6 py-3 text-base font-semibold hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
-              Browse templates
-            </Link>
+
+      <section className="hero-bg">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
+          <div className="min-w-0">
+            <p className="inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-3 py-1 text-xs font-semibold text-teal-800 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" /> Free forever · No sign-up · Works in your browser
+            </p>
+            <h1 className="mt-5 text-4xl font-extrabold leading-[1.05] text-slate-900 sm:text-6xl">
+              GST invoices that look <span className="relative whitespace-nowrap text-teal-700">professional<svg aria-hidden="true" viewBox="0 0 200 12" className="absolute -bottom-2 left-0 h-2 w-full text-amber-300" preserveAspectRatio="none"><path d="M2 8 C 50 2, 120 2, 198 7" stroke="currentColor" strokeWidth="5" fill="none" strokeLinecap="round" /></svg></span>, in two minutes.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
+              Built for Indian freelancers and small businesses. Automatic CGST, SGST and IGST, GSTIN checks, the amount in words and a clean PDF. Your data never leaves your device.
+            </p>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              <Link href="/generator" className="rounded-full bg-teal-700 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-teal-900/20 hover:bg-teal-800">
+                Create an invoice →
+              </Link>
+              <Link href="/invoice-template" className="rounded-full border border-teal-200 bg-white px-7 py-3.5 text-base font-semibold text-teal-900 hover:border-teal-400">
+                Browse templates
+              </Link>
+            </div>
+            <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
+              {["CGST / SGST / IGST", "Lakh & crore in words", "UPI + bank details", "3 templates"].map((t) => (
+                <li key={t} className="flex items-center gap-1.5">
+                  <span aria-hidden="true" className="text-teal-600">✓</span> {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="relative mx-auto w-full min-w-0 max-w-[34rem]">
+            <div aria-hidden="true" className="dot-grid absolute -right-6 -top-6 h-40 w-40 opacity-70" />
+            <div className="relative max-h-[34rem] rotate-1 overflow-hidden rounded-2xl bg-white p-2 shadow-2xl shadow-teal-900/15 ring-1 ring-teal-900/10">
+              <ExampleInvoicePreview example={showcase.example} label="Sample GST invoice made with BillBuddy" />
+              <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
+            </div>
+            <div className="absolute -bottom-4 -left-3 hidden rounded-xl border border-teal-100 bg-white px-4 py-3 text-sm shadow-lg sm:block">
+              <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Karnataka → Maharashtra</p>
+              <p className="font-semibold text-slate-900">IGST applied automatically</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-14" aria-labelledby="how">
-        <h2 id="how" className="text-center text-2xl font-bold tracking-tight sm:text-3xl">How it works</h2>
-        <ol className="mt-8 grid gap-6 sm:grid-cols-3">
+      <section className="mx-auto max-w-6xl px-4 py-16" aria-labelledby="how">
+        <p className="eyebrow">How it works</p>
+        <h2 id="how" className="mt-2 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">From blank form to PDF in three steps</h2>
+        <ol className="mt-10 grid gap-5 sm:grid-cols-3">
           {steps.map((s) => (
-            <li key={s.n} className="rounded-xl border border-slate-200 p-5 dark:border-slate-800">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-indigo-600 text-sm font-bold text-white">{s.n}</span>
-              <h3 className="mt-3 font-semibold">{s.title}</h3>
-              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{s.text}</p>
+            <li key={s.n} className="surface p-6">
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-teal-700 font-display text-lg font-extrabold text-white">{s.n}</span>
+              <h3 className="mt-4 text-lg font-bold">{s.title}</h3>
+              <p className="mt-1.5 leading-relaxed text-slate-600">{s.text}</p>
             </li>
           ))}
         </ol>
       </section>
 
-      <section className="bg-slate-50 py-14 dark:bg-slate-900/40" aria-labelledby="features">
+      <section className="border-y border-teal-900/10 bg-white py-16" aria-labelledby="features">
         <div className="mx-auto max-w-6xl px-4">
-          <h2 id="features" className="text-center text-2xl font-bold tracking-tight sm:text-3xl">Everything a GST invoice needs</h2>
-          <ul className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((f) => (
-              <li key={f.title} className="rounded-xl bg-white p-5 shadow-sm dark:bg-slate-900">
-                <h3 className="font-semibold">{f.title}</h3>
-                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{f.text}</p>
+          <p className="eyebrow">Features</p>
+          <h2 id="features" className="mt-2 max-w-2xl text-3xl font-extrabold tracking-tight sm:text-4xl">Everything a GST invoice needs, nothing it does not</h2>
+          <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((f, i) => (
+              <li key={f.title} className="rounded-2xl border border-teal-900/10 bg-gradient-to-b from-teal-50/60 to-white p-6">
+                <span aria-hidden="true" className={`mb-4 grid h-10 w-10 place-items-center rounded-full text-lg ${i % 2 ? "bg-amber-100 text-amber-700" : "bg-teal-100 text-teal-700"}`}>
+                  {["%", "✓", "₹", "▤", "◎", "⌂"][i]}
+                </span>
+                <h3 className="text-lg font-bold">{f.title}</h3>
+                <p className="mt-1.5 leading-relaxed text-slate-600">{f.text}</p>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-4 py-14" aria-labelledby="templates">
-        <h2 id="templates" className="text-2xl font-bold tracking-tight sm:text-3xl">Start from a template for your work</h2>
-        <ul className="mt-6 flex flex-wrap gap-2">
+      <section className="mx-auto max-w-6xl px-4 py-16" aria-labelledby="templates">
+        <p className="eyebrow">Templates</p>
+        <h2 id="templates" className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">Start from an invoice made for your work</h2>
+        <ul className="mt-8 flex flex-wrap gap-2.5">
           {professions.map((p) => (
             <li key={p.slug}>
-              <Link href={`/invoice-template/${p.slug}`} className="inline-block rounded-full border border-slate-300 px-4 py-1.5 text-sm hover:border-indigo-500 hover:text-indigo-600 dark:border-slate-700">
+              <Link href={`/invoice-template/${p.slug}`} className="inline-block rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-medium text-slate-800 shadow-sm transition hover:-translate-y-0.5 hover:border-teal-500 hover:text-teal-800">
                 {p.name}
               </Link>
             </li>
           ))}
         </ul>
-        <h3 className="mt-8 text-lg font-semibold">GST invoice format by state</h3>
-        <ul className="mt-3 flex flex-wrap gap-2">
+        <h3 className="mt-12 text-xl font-bold">GST invoice format by state</h3>
+        <ul className="mt-4 flex flex-wrap gap-2.5">
           {stateGuides.map((s) => (
             <li key={s.slug}>
-              <Link href={`/gst-invoice-format/${s.slug}`} className="inline-block rounded-full border border-slate-300 px-4 py-1.5 text-sm hover:border-indigo-500 hover:text-indigo-600 dark:border-slate-700">
-                {s.name}
+              <Link href={`/gst-invoice-format/${s.slug}`} className="inline-block rounded-full border border-amber-200 bg-amber-50/60 px-4 py-2 text-sm font-medium text-slate-800 transition hover:-translate-y-0.5 hover:border-amber-400">
+                {s.name} <span className="text-slate-400">· {s.code}</span>
               </Link>
             </li>
           ))}
@@ -108,12 +144,16 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 pb-6" aria-labelledby="blog">
-        <h2 id="blog" className="text-2xl font-bold tracking-tight sm:text-3xl">Latest guides</h2>
-        <ul className="mt-6 grid gap-4 sm:grid-cols-3">
+        <p className="eyebrow">Guides</p>
+        <h2 id="blog" className="mt-2 text-3xl font-extrabold tracking-tight sm:text-4xl">GST, explained plainly</h2>
+        <ul className="mt-8 grid gap-5 sm:grid-cols-3">
           {posts.map((p) => (
-            <li key={p.slug} className="rounded-xl border border-slate-200 p-4 dark:border-slate-800">
-              <Link href={`/blog/${p.slug}`} className="font-semibold hover:text-indigo-600">{p.title}</Link>
-              <p className="mt-1 text-xs text-slate-500">{formatPostDate(p.date)}</p>
+            <li key={p.slug}>
+              <Link href={`/blog/${p.slug}`} className="surface lift block h-full p-5">
+                <p className="text-xs font-medium text-slate-500">{formatPostDate(p.date)} · {p.readingMinutes} min read</p>
+                <h3 className="mt-2 text-lg font-bold leading-snug">{p.title}</h3>
+                <p className="mt-2 line-clamp-3 text-sm text-slate-600">{p.description}</p>
+              </Link>
             </li>
           ))}
         </ul>
@@ -121,6 +161,7 @@ export default function Home() {
 
       <div className="mx-auto max-w-3xl px-4 pb-6">
         <FaqList faqs={faqs} />
+        <Cta />
       </div>
     </>
   );

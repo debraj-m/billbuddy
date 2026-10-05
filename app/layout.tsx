@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { Header } from "@/components/Header";
@@ -8,7 +8,8 @@ import { JsonLd } from "@/components/JsonLd";
 import { organizationJsonLd } from "@/lib/seo";
 import { SITE_NAME, SITE_TAGLINE, SITE_URL } from "@/lib/site";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+const body = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
+const display = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-display", display: "swap" });
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const GSC = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
@@ -22,11 +23,11 @@ export const metadata: Metadata = {
   ...(GSC ? { verification: { google: GSC } } : {}),
 };
 
-export const viewport: Viewport = { themeColor: "#4f46e5", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#0f766e", width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN" className={`${inter.variable} h-full antialiased`}>
+    <html lang="en-IN" className={`${body.variable} ${display.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <Header />
         <main className="flex-1">{children}</main>

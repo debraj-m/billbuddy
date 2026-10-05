@@ -23,19 +23,19 @@ export default function BlogIndex() {
       <JsonLd data={breadcrumbJsonLd(crumbs)} />
       <Breadcrumbs crumbs={crumbs} />
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">GST and invoicing guides</h1>
-      <p className="mt-3 max-w-2xl text-slate-600 dark:text-slate-400">Plain-English explanations of the GST rules freelancers and small businesses actually run into.</p>
+      <p className="mt-3 max-w-2xl text-slate-600">Plain-English explanations of the GST rules freelancers and small businesses actually run into.</p>
       <ul className="mt-8 space-y-6">
         {posts.map((p) => (
-          <li key={p.slug} className="rounded-xl border border-slate-200 p-5 dark:border-slate-800">
+          <li key={p.slug} className="surface p-5">
             <h2 className="text-xl font-semibold">
-              <Link href={`/blog/${p.slug}`} className="hover:text-indigo-600">
+              <Link href={`/blog/${p.slug}`} className="hover:text-teal-600">
                 {p.title}
               </Link>
             </h2>
             <p className="mt-1 text-sm text-slate-500">
               {formatPostDate(p.date)} · {p.readingMinutes} min read
             </p>
-            <p className="mt-2 text-slate-600 dark:text-slate-400">{p.description}</p>
+            <p className="mt-2 text-slate-600">{p.description}</p>
           </li>
         ))}
       </ul>

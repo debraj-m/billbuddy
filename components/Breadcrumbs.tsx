@@ -9,11 +9,11 @@ export function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
           <li key={c.path} className="flex items-center gap-1">
             {i > 0 && <span aria-hidden="true">/</span>}
             {i === crumbs.length - 1 ? (
-              <span aria-current="page" className="text-slate-700 dark:text-slate-300">
+              <span aria-current="page" className="text-slate-700">
                 {c.name}
               </span>
             ) : (
-              <Link href={c.path} className="hover:text-indigo-600 hover:underline">
+              <Link href={c.path} className="hover:text-teal-600 hover:underline">
                 {c.name}
               </Link>
             )}

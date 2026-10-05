@@ -22,12 +22,12 @@ import { InvoicePreview } from "./InvoicePreview";
 import { ScaledPreview } from "./ScaledPreview";
 
 const input =
-  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-200 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100";
+  "w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400 focus:border-teal-500 focus:outline-none focus:ring-2 focus:ring-teal-200";
 
 function Field({ label, error, hint, children, className = "" }: { label: string; error?: string | null; hint?: string; children: ReactNode; className?: string }) {
   return (
     <label className={`block ${className}`}>
-      <span className="mb-1 block text-xs font-medium text-slate-600 dark:text-slate-400">{label}</span>
+      <span className="mb-1 block text-xs font-medium text-slate-600">{label}</span>
       {children}
       {error ? <span className="mt-1 block text-xs text-red-600">{error}</span> : hint ? <span className="mt-1 block text-xs text-slate-500">{hint}</span> : null}
     </label>
@@ -36,9 +36,9 @@ function Field({ label, error, hint, children, className = "" }: { label: string
 
 function Section({ title, children, aside }: { title: string; children: ReactNode; aside?: ReactNode }) {
   return (
-    <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
+    <section className="surface p-5">
       <div className="mb-3 flex items-center justify-between gap-2">
-        <h2 className="text-sm font-semibold text-slate-900 dark:text-slate-100">{title}</h2>
+        <h2 className="font-display text-base font-bold text-slate-900">{title}</h2>
         {aside}
       </div>
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">{children}</div>
@@ -241,24 +241,24 @@ export function Generator() {
       : `Different states (${view.sellerState} → ${view.buyerState}): IGST will be charged.`;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-6">
+    <div className="mx-auto max-w-7xl px-4 py-8">
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">GST Invoice Generator</h1>
-          <p className="text-sm text-slate-600 dark:text-slate-400">Free, no sign-up. Your data stays in this browser and is never uploaded.</p>
+          <h1 className="text-3xl font-extrabold tracking-tight">GST Invoice Generator</h1>
+          <p className="text-sm text-slate-600">Free, no sign-up. Your data stays in this browser and is never uploaded.</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          <button type="button" onClick={newInvoice} className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800">
+          <button type="button" onClick={newInvoice} className="rounded-full border border-teal-200 bg-white px-4 py-2 text-sm font-medium hover:bg-teal-50">
             New invoice
           </button>
-          <button type="button" onClick={resetAll} className="rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-400 dark:hover:bg-slate-800">
+          <button type="button" onClick={resetAll} className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm text-slate-600 hover:bg-slate-50">
             Reset all
           </button>
           <button
             type="button"
             onClick={download}
             disabled={busy}
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 disabled:opacity-60"
+            className="rounded-full bg-teal-700 px-5 py-2 text-sm font-semibold text-white shadow-md shadow-teal-900/15 hover:bg-teal-800 disabled:opacity-60"
           >
             {busy ? "Creating PDF…" : "Download PDF"}
           </button>
@@ -266,7 +266,7 @@ export function Generator() {
       </div>
 
       {(showErrors && blocking.length > 0) || message ? (
-        <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-200">
+        <div role="alert" className="mb-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800">
           {message && <p>{message}</p>}
           {showErrors && blocking.length > 0 && (
             <>
@@ -281,7 +281,7 @@ export function Generator() {
         </div>
       ) : null}
 
-      <div className="mb-4 flex rounded-lg border border-slate-200 p-1 text-sm lg:hidden dark:border-slate-800" role="tablist" aria-label="Editor or preview">
+      <div className="mb-4 flex rounded-lg border border-slate-200 p-1 text-sm lg:hidden" role="tablist" aria-label="Editor or preview">
         {(["edit", "preview"] as const).map((t) => (
           <button
             key={t}
@@ -289,7 +289,7 @@ export function Generator() {
             aria-selected={tab === t}
             type="button"
             onClick={() => setTab(t)}
-            className={`flex-1 rounded-md px-3 py-2 font-medium ${tab === t ? "bg-indigo-600 text-white" : "text-slate-600 dark:text-slate-300"}`}
+            className={`flex-1 rounded-md px-3 py-2 font-medium ${tab === t ? "bg-teal-600 text-white" : "text-slate-600"}`}
           >
             {t === "edit" ? "Edit" : "Preview"}
           </button>
@@ -297,7 +297,7 @@ export function Generator() {
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-        <div className={`space-y-4 ${tab === "preview" ? "hidden lg:block" : ""}`}>
+        <div className={`min-w-0 space-y-4 ${tab === "preview" ? "hidden lg:block" : ""}`}>
           <Section title="Template">
             <div className="grid grid-cols-3 gap-2 sm:col-span-2">
               {TEMPLATES.map((t) => (
@@ -306,7 +306,7 @@ export function Generator() {
                   type="button"
                   onClick={() => chooseTemplate(t.id)}
                   aria-pressed={inv.template === t.id}
-                  className={`rounded-lg border p-2 text-left text-sm ${inv.template === t.id ? "border-indigo-600 bg-indigo-50 dark:bg-indigo-950/40" : "border-slate-300 hover:bg-slate-50 dark:border-slate-700 dark:hover:bg-slate-800"}`}
+                  className={`rounded-lg border p-2 text-left text-sm ${inv.template === t.id ? "border-teal-600 bg-teal-50" : "border-slate-300 hover:bg-slate-50"}`}
                 >
                   <span className="block font-semibold">{t.label}</span>
                   <span className="block text-xs text-slate-500">{t.blurb}</span>
@@ -352,9 +352,9 @@ export function Generator() {
               <input type="tel" className={input} value={inv.seller.phone} onChange={(e) => setSeller({ phone: e.target.value })} />
             </Field>
             <div className="sm:col-span-2">
-              <span className="mb-1 block text-xs font-medium text-slate-600 dark:text-slate-400">Logo (optional)</span>
+              <span className="mb-1 block text-xs font-medium text-slate-600">Logo (optional)</span>
               <div className="flex items-center gap-3">
-                <input type="file" accept="image/*" onChange={onLogo} className="block w-full text-sm text-slate-600 file:mr-3 file:rounded-lg file:border-0 file:bg-indigo-50 file:px-3 file:py-2 file:text-sm file:font-medium file:text-indigo-700 dark:text-slate-400" />
+                <input type="file" accept="image/*" onChange={onLogo} className="block w-full text-sm text-slate-600 file:mr-3 file:rounded-lg file:border-0 file:bg-teal-50 file:px-3 file:py-2 file:text-sm file:font-medium file:text-teal-700" />
                 {inv.seller.logo && (
                   <button type="button" onClick={() => setSeller({ logo: "" })} className="shrink-0 text-sm text-red-600 underline">
                     Remove
@@ -380,21 +380,21 @@ export function Generator() {
             <Field label="Email">
               <input type="email" className={input} value={inv.buyer.email} onChange={(e) => setBuyer({ email: e.target.value })} />
             </Field>
-            <p className="rounded-lg bg-indigo-50 p-2 text-xs text-indigo-900 sm:col-span-2 dark:bg-indigo-950/40 dark:text-indigo-200" aria-live="polite">
+            <p className="rounded-lg bg-teal-50 p-2 text-xs text-teal-900 sm:col-span-2" aria-live="polite">
               {taxBanner}
             </p>
           </Section>
 
-          <section className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm dark:border-slate-800 dark:bg-slate-900/40">
+          <section className="surface p-5">
             <div className="mb-3 flex items-center justify-between">
-              <h2 className="text-sm font-semibold">Line items</h2>
-              <button type="button" onClick={() => update((d) => ({ ...d, items: [...d.items, blankItem()] }))} className="rounded-lg bg-indigo-50 px-3 py-1.5 text-sm font-medium text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-950/50 dark:text-indigo-300">
+              <h2 className="font-display text-base font-bold">Line items</h2>
+              <button type="button" onClick={() => update((d) => ({ ...d, items: [...d.items, blankItem()] }))} className="rounded-lg bg-teal-50 px-3 py-1.5 text-sm font-medium text-teal-700 hover:bg-teal-100">
                 + Add item
               </button>
             </div>
             <div className="space-y-3">
               {inv.items.map((it, idx) => (
-                <div key={it.id} className="rounded-lg border border-slate-200 p-3 dark:border-slate-700">
+                <div key={it.id} className="rounded-lg border border-slate-200 p-3">
                   <div className="grid grid-cols-2 gap-3 sm:grid-cols-6">
                     <Field label={`Description (item ${idx + 1})`} className="col-span-2 sm:col-span-4">
                       <input className={input} value={it.description} onChange={(e) => setItem(it.id, { description: e.target.value })} />
@@ -462,13 +462,13 @@ export function Generator() {
           </Section>
         </div>
 
-        <div className={`${tab === "edit" ? "hidden lg:block" : ""}`}>
+        <div className={`min-w-0 ${tab === "edit" ? "hidden lg:block" : ""}`}>
           <div className="lg:sticky lg:top-4">
-            <div className="mb-2 flex items-center justify-between text-sm text-slate-600 dark:text-slate-400">
+            <div className="mb-2 flex items-center justify-between text-sm text-slate-600">
               <span className="font-medium">Live preview</span>
               <span>Total ₹{formatINR(view.totals.grandTotal)}</span>
             </div>
-            <div className="overflow-hidden rounded-lg border border-slate-300 bg-slate-100 shadow dark:border-slate-700">
+            <div className="overflow-hidden rounded-lg border border-slate-300 bg-slate-100 shadow">
               <ScaledPreview>
                 <InvoicePreview view={view} />
               </ScaledPreview>
@@ -477,7 +477,7 @@ export function Generator() {
               type="button"
               onClick={download}
               disabled={busy}
-              className="mt-3 w-full rounded-lg bg-indigo-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 disabled:opacity-60 lg:hidden"
+              className="mt-3 w-full rounded-lg bg-teal-600 px-4 py-3 text-sm font-semibold text-white shadow-sm hover:bg-teal-700 disabled:opacity-60 lg:hidden"
             >
               {busy ? "Creating PDF…" : "Download PDF"}
             </button>

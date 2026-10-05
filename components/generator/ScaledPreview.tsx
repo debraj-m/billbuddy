@@ -9,6 +9,7 @@ export function ScaledPreview({ children, label = "Invoice preview" }: { childre
   const inner = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(1);
   const [height, setHeight] = useState(PREVIEW_HEIGHT);
+  const [offset, setOffset] = useState(0);
 
   useEffect(() => {
     const el = outer.current;
@@ -18,6 +19,7 @@ export function ScaledPreview({ children, label = "Invoice preview" }: { childre
       const s = Math.min(1, el.clientWidth / PREVIEW_WIDTH);
       setScale(s);
       setHeight(inn.offsetHeight * s);
+      setOffset(Math.max(0, (el.clientWidth - PREVIEW_WIDTH * s) / 2));
     };
     update();
     const ro = new ResizeObserver(update);
@@ -28,7 +30,7 @@ export function ScaledPreview({ children, label = "Invoice preview" }: { childre
 
   return (
     <div ref={outer} className="w-full overflow-hidden" style={{ height }} role="img" aria-label={label}>
-      <div ref={inner} style={{ width: PREVIEW_WIDTH, transform: `scale(${scale})`, transformOrigin: "top left" }}>
+      <div ref={inner} style={{ width: PREVIEW_WIDTH, transform: `scale(${scale})`, transformOrigin: "top left", marginLeft: offset }}>
         {children}
       </div>
     </div>

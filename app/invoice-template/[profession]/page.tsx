@@ -54,13 +54,13 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
           <p key={para.slice(0, 24)}>{para}</p>
         ))}
       </div>
-      <Link href={`/generator?example=${p.slug}`} className="mt-2 inline-block rounded-lg bg-indigo-600 px-5 py-3 font-semibold text-white hover:bg-indigo-700">
+      <Link href={`/generator?example=${p.slug}`} className="mt-2 inline-block rounded-full bg-teal-700 px-6 py-3 font-semibold text-white shadow-md shadow-teal-900/15 hover:bg-teal-800">
         Use this {p.name.toLowerCase()} template →
       </Link>
 
       <section className="mt-12">
         <h2 className="mb-2 text-2xl font-bold tracking-tight">Example {p.name.toLowerCase()} invoice</h2>
-        <p className="mb-4 max-w-3xl text-slate-600 dark:text-slate-400">
+        <p className="mb-4 max-w-3xl text-slate-600">
           {p.example.sellerName} bills {p.example.buyerName} for ₹{formatINR(t.taxable)} before tax. {taxSentence} The invoice total is ₹{formatINR(t.grandTotal)}.
         </p>
         <ExampleInvoicePreview example={p.example} label={`Example ${p.name} invoice`} />
@@ -129,7 +129,7 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
           <ul className="space-y-2">
             {posts.map((x) => (
               <li key={x.slug}>
-                <Link className="text-indigo-600 hover:underline dark:text-indigo-400" href={`/blog/${x.slug}`}>
+                <Link className="text-teal-600 hover:underline" href={`/blog/${x.slug}`}>
                   {x.title}
                 </Link>
               </li>
@@ -143,7 +143,7 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
         <ul className="flex flex-wrap gap-2">
           {related.map((r) => (
             <li key={r.slug}>
-              <Link className="rounded-full border border-slate-300 px-4 py-1.5 text-sm hover:border-indigo-500 hover:text-indigo-600 dark:border-slate-700" href={`/invoice-template/${r.slug}`}>
+              <Link className="rounded-full border border-teal-200 bg-white px-4 py-1.5 text-sm font-medium shadow-sm hover:border-teal-500 hover:text-teal-800" href={`/invoice-template/${r.slug}`}>
                 {r.name}
               </Link>
             </li>
