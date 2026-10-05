@@ -1,0 +1,95 @@
+---
+title: "CGST vs SGST vs IGST: When Each Applies (With Examples)"
+description: "Understand CGST, SGST and IGST with worked examples. Learn how place of supply decides the tax, what UTGST is, and how to avoid the most common invoicing error."
+date: "2026-09-15"
+slug: "cgst-sgst-igst-when-each-applies"
+tags: ["gst", "invoicing", "tax-types"]
+---
+
+Every GST invoice in India shows tax in one of two shapes: a pair of lines called CGST and SGST, or a single line called IGST. Choosing the wrong shape is the most common invoicing mistake among freelancers, and unlike a typo it affects what your client can claim and where the tax money ends up. The good news is that the rule is simple once you see it: it depends on whether the supply stays inside one state or crosses a state line.
+
+## The three taxes in one paragraph
+
+**CGST** is the Central GST, collected by the Government of India. **SGST** is the State GST, collected by the state where the supply happens. When the supplier and the place of supply are in the same state, the total GST rate is split equally between the two. **IGST** is the Integrated GST, charged on supplies between different states and on imports and exports. It is collected by the Centre and then shared with the destination state. For the customer the total tax is the same either way. What changes is who collects it.
+
+A third variant, **UTGST**, replaces SGST in union territories that have no legislature of their own: Andaman and Nicobar Islands, Chandigarh, Dadra and Nagar Haveli and Daman and Diu, Lakshadweep and Ladakh. Delhi, Puducherry and Jammu and Kashmir have legislatures, so they use ordinary SGST.
+
+## The rule in plain words
+
+Compare the **location of the supplier** with the **place of supply**.
+
+- **Same state:** charge CGST + SGST, each at half the GST rate.
+- **Different states:** charge IGST at the full GST rate.
+
+For an 18% service, that means 9% CGST plus 9% SGST inside a state, or 18% IGST across states.
+
+## Worked example 1: same state
+
+A Pune web developer invoices a Mumbai company ₹50,000 for a website redesign. Both are in Maharashtra and the rate is 18%.
+
+| Item | Amount (₹) |
+| --- | --- |
+| Taxable value | 50,000.00 |
+| CGST at 9% | 4,500.00 |
+| SGST at 9% | 4,500.00 |
+| **Invoice total** | **59,000.00** |
+
+## Worked example 2: different states
+
+The same developer bills a Bengaluru company for the same ₹50,000 job.
+
+| Item | Amount (₹) |
+| --- | --- |
+| Taxable value | 50,000.00 |
+| IGST at 18% | 9,000.00 |
+| **Invoice total** | **59,000.00** |
+
+The client pays the same total in both cases. The invoice, however, looks different and the client's tax return records the credit differently.
+
+## What is "place of supply"?
+
+Place of supply is a legal concept, not just the client's postal address. The IGST Act has detailed rules, and the common ones for freelancers are these.
+
+1. **B2B services (client is registered):** the place of supply is generally the **location of the recipient**, meaning the address on the GSTIN you are billing. If a company has offices in several states and contracts you through its Delhi registration, you bill the Delhi GSTIN and charge IGST (if you are not in Delhi), even if you do the work for its Mumbai team.
+2. **B2C services (client is not registered):** the place of supply is generally the location of the recipient if you have their address on record. If not, it is your own location.
+3. **Specific exceptions:** services connected with immovable property (the location of the property), events like weddings and conferences (the venue, for unregistered recipients), training and performance appraisal (the recipient's location if registered), and some others have their own rules.
+4. **Goods:** broadly, the place where the goods are delivered or where movement ends.
+
+The takeaway: **ask your client which GSTIN to bill and check its first two digits.** Those two digits are the state code. 27 is Maharashtra, 29 is Karnataka, 07 is Delhi, 33 is Tamil Nadu, and so on. If the code matches yours, it is usually CGST + SGST. If not, it is usually IGST. Our [state guides](/gst-invoice-format) list each state's code.
+
+## Special cases that are always IGST
+
+Some supplies are treated as inter-state even when both parties sit in the same state:
+
+- **Exports of services** to clients outside India (zero-rated, covered in our guide to [invoicing international clients](/blog/invoice-for-international-clients-lut-export-of-services)).
+- **Imports** of goods or services.
+- **Supplies to or by an SEZ** developer or unit. A freelancer in Gujarat billing a unit inside GIFT City treats the supply as inter-state.
+- **Supplies where the supplier is in India and the place of supply is outside the state**, as defined by the rules above.
+
+## Why the split matters to your client
+
+Your client claims **input tax credit** on the GST you charged. Credit is tracked by tax type, and the rules for using it are strict. IGST credit can be used to pay IGST first, then CGST, then SGST. CGST credit can pay CGST and IGST, but not SGST. SGST credit can pay SGST and IGST, but not CGST. A wrong split mixes up these pools and can leave your client's return out of line with your filing. That is why a wrong tax type usually means a credit note and a corrected invoice, not just a mild apology.
+
+## Charging the wrong tax: what happens?
+
+If you charged CGST and SGST but should have charged IGST, the tax went to the wrong government account. You can correct it, but only by following the formal procedure: a credit note, a fresh invoice, and adjustments in your returns, with some paperwork in between. The simplest remedy is to avoid the error. Pick the right client state before you add line items.
+
+## A quick decision flow
+
+1. Is your client outside India? Treat it as an export. You may zero-rate it with an LUT.
+2. Is your client an SEZ unit? Charge IGST (or zero-rate under LUT).
+3. Otherwise, look at the **state code of the client's GSTIN** (for B2B) or their address (for B2C).
+4. Same state as yours: CGST + SGST. Different state: IGST.
+5. If your registered state is a union territory without a legislature, replace SGST with UTGST in step 4.
+
+## Do the totals change if I split by line?
+
+The total tax is the same, but rounding can differ by a few paise. A sensible habit is to compute each line's tax, round to two decimals and sum. BillBuddy does this on every line, then shows a slab-wise tax summary and the round-off to the nearest rupee so your total always matches the arithmetic on the page.
+
+## Putting it into practice
+
+When you [create an invoice in BillBuddy](/generator), you pick your state and the client's state. If they match, the preview shows CGST and SGST. If not, it shows a single IGST line. Entering a valid GSTIN fills the state automatically from its first two digits, which also removes one source of typing errors. For more state-specific examples, browse [GST invoice formats by state](/gst-invoice-format).
+
+*This article is general information, not tax advice. Place of supply rules have many exceptions, so confirm unusual cases with a chartered accountant.*
+
+<GeneratorCta title="Let BillBuddy pick the right tax" text="Choose the two states and the invoice switches between CGST + SGST and IGST for you." />
