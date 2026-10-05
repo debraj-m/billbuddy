@@ -5,7 +5,7 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL
     ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-    : "https://billbuddy.vercel.app")
+    : "https://billbuddy-ochre.vercel.app")
 ).replace(/\/$/, "");
 
 export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hello@billbuddy.app";
