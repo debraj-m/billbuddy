@@ -54,7 +54,7 @@ export default async function StatePage({ params }: PageProps<"/gst-invoice-form
         ))}
       </div>
       <Link href="/generator" className="mt-2 inline-block rounded-full bg-teal-700 px-6 py-3 font-semibold text-white shadow-md shadow-teal-900/15 hover:bg-teal-800">
-        Create a {s.name} GST invoice →
+        Create a {s.name} GST invoice
       </Link>
 
       <section className="mt-12">

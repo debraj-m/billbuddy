@@ -238,7 +238,7 @@ export function Generator() {
     ? "Select your state and the client's state to apply the right GST (CGST + SGST or IGST)."
     : view.intra
       ? `Same state (${view.sellerState}): CGST + SGST will be charged.`
-      : `Different states (${view.sellerState} → ${view.buyerState}): IGST will be charged.`;
+      : `Different states (${view.sellerState} to ${view.buyerState}): IGST will be charged.`;
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-8">

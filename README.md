@@ -23,7 +23,7 @@ Other scripts: `npm run build`, `npm start`, `npm run lint`, `npm run typecheck`
 
 | Variable | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SITE_URL` | Canonical origin (e.g. `https://billbuddy.example`). Used for canonicals, sitemap, OG. Falls back to `VERCEL_PROJECT_PRODUCTION_URL`, then `https://billbuddy.vercel.app`. |
+| `NEXT_PUBLIC_SITE_URL` | Canonical origin. Optional on Vercel: leave it unset to use the project's `*.vercel.app` URL (read from `VERCEL_PROJECT_PRODUCTION_URL`). Set it only with a custom domain. |
 | `NEXT_PUBLIC_GSC_VERIFICATION` | Google Search Console HTML-tag token. Renders `<meta name="google-site-verification">`. |
 | `NEXT_PUBLIC_GA_ID` | GA4 measurement ID (`G-XXXXXXXXXX`). Analytics is off when empty. |
 | `NEXT_PUBLIC_CONTACT_EMAIL` | Address shown on the contact and privacy pages. |

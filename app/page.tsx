@@ -58,7 +58,7 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Link href="/generator" className="rounded-full bg-teal-700 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-teal-900/20 hover:bg-teal-800">
-                Create an invoice →
+                Create an invoice
               </Link>
               <Link href="/invoice-template" className="rounded-full border border-teal-200 bg-white px-7 py-3.5 text-base font-semibold text-teal-900 hover:border-teal-400">
                 Browse templates
@@ -80,7 +80,7 @@ export default function Home() {
               <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-white to-transparent" />
             </div>
             <div className="absolute -bottom-4 -left-3 hidden rounded-xl border border-teal-100 bg-white px-4 py-3 text-sm shadow-lg sm:block">
-              <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Karnataka → Maharashtra</p>
+              <p className="text-xs font-semibold uppercase tracking-wider text-teal-700">Karnataka to Maharashtra</p>
               <p className="font-semibold text-slate-900">IGST applied automatically</p>
             </div>
           </div>

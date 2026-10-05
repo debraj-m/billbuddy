@@ -55,7 +55,7 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
         ))}
       </div>
       <Link href={`/generator?example=${p.slug}`} className="mt-2 inline-block rounded-full bg-teal-700 px-6 py-3 font-semibold text-white shadow-md shadow-teal-900/15 hover:bg-teal-800">
-        Use this {p.name.toLowerCase()} template →
+        Use this {p.name.toLowerCase()} template
       </Link>
 
       <section className="mt-12">

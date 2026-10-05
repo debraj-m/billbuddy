@@ -23,7 +23,7 @@ export function Footer() {
             ))}
             <li>
               <Link className="font-medium text-teal-600" href="/invoice-template">
-                All professions →
+                All professions
               </Link>
             </li>
           </ul>
@@ -40,7 +40,7 @@ export function Footer() {
             ))}
             <li>
               <Link className="font-medium text-teal-600" href="/gst-invoice-format">
-                All states →
+                All states
               </Link>
             </li>
           </ul>
