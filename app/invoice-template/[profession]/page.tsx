@@ -9,7 +9,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { getProfession, professions } from "@/data/professions";
 import { stateGuides } from "@/data/states";
 import { getAllPosts } from "@/lib/blog";
-import { breadcrumbJsonLd, faqJsonLd, pageMetadata } from "@/lib/seo";
+import { breadcrumbJsonLd, faqJsonLd, pageMetadata, templateJsonLd } from "@/lib/seo";
 import { formatINR } from "@/lib/words";
 
 export const dynamicParams = false;
@@ -46,7 +46,7 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
 
   return (
     <article className="mx-auto max-w-5xl px-4 py-10">
-      <JsonLd data={[faqJsonLd(p.faqs), breadcrumbJsonLd(crumbs)]} />
+      <JsonLd data={[templateJsonLd(p), faqJsonLd(p.faqs), breadcrumbJsonLd(crumbs)]} />
       <Breadcrumbs crumbs={crumbs} />
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">{p.h1}</h1>
       <div className="prose-bb mt-4">

@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { professions } from "@/data/professions";
 import { stateGuides } from "@/data/states";
 import { formatPostDate, getAllPosts } from "@/lib/blog";
-import { faqJsonLd, pageMetadata, type Faq } from "@/lib/seo";
+import { faqJsonLd, pageMetadata, webApplicationJsonLd, type Faq } from "@/lib/seo";
 
 export const metadata = pageMetadata({
   title: "BillBuddy – Free GST Invoice Generator for Indian Freelancers",
@@ -74,7 +74,7 @@ export default function Home() {
   const showcase = professions[0];
   return (
     <>
-      <JsonLd data={faqJsonLd(faqs)} />
+      <JsonLd data={[webApplicationJsonLd, faqJsonLd(faqs)]} />
 
       <section className="hero-bg">
         <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">

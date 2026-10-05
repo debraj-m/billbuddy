@@ -76,23 +76,40 @@ export const webApplicationJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   name: `${SITE_NAME} GST Invoice Generator`,
-  url: absoluteUrl("/generator"),
+  url: absoluteUrl("/"),
   applicationCategory: "BusinessApplication",
+  applicationSubCategory: "Invoicing & Billing Software",
   operatingSystem: "Any (web browser)",
   browserRequirements: "Requires JavaScript",
   inLanguage: "en-IN",
   offers: { "@type": "Offer", price: "0", priceCurrency: "INR" },
   description:
-    "Create GST-compliant tax invoices with automatic CGST, SGST and IGST, amount in words and PDF download. Runs entirely in your browser.",
+    "Create GST-compliant tax invoices with automatic CGST, SGST and IGST, amount in words and PDF download. Runs entirely in your browser without signup.",
   featureList: [
     "Automatic CGST/SGST/IGST calculation",
     "GSTIN format validation",
     "Amount in words (lakh/crore)",
     "Three invoice templates",
     "UPI and bank details on the invoice",
-    "PDF download without sign-up",
+    "Instant PDF download without sign-up",
+    "100% private client-side processing",
   ],
 };
+
+export const templateJsonLd = (p: { name: string; slug: string; description: string }) => ({
+  "@context": "https://schema.org",
+  "@type": "DigitalDocument",
+  name: `GST Invoice Template for ${p.name}s`,
+  description: p.description,
+  url: absoluteUrl(`/invoice-template/${p.slug}`),
+  encodingFormat: "application/pdf",
+  isAccessibleForFree: true,
+  provider: {
+    "@type": "Organization",
+    name: SITE_NAME,
+    url: SITE_URL,
+  },
+});
 
 export const articleJsonLd = (a: { title: string; description: string; slug: string; date: string }) => ({
   "@context": "https://schema.org",
