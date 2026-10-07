@@ -67,7 +67,7 @@ export const professions: Profession[] = [
       notes: "Milestone 3 (go-live and handover) will be invoiced on launch.",
     },
     blog: ["hsn-vs-sac-codes-practical-guide", "cgst-sgst-igst-when-each-applies", "invoice-payment-terms-and-late-payments"],
-    related: ["app-developer", "ui-ux-designer", "seo-specialist"],
+    related: ["app-developer", "ui-ux-designer", "seo-specialist", "international-freelancer"],
   },
   {
     slug: "graphic-designer",
@@ -388,7 +388,7 @@ export const professions: Profession[] = [
       notes: "Ad spend of ₹40,000 is billed directly by Meta to the client's ad account and is not part of this invoice.",
     },
     blog: ["invoice-payment-terms-and-late-payments", "hsn-vs-sac-codes-practical-guide", "cgst-sgst-igst-when-each-applies"],
-    related: ["seo-specialist", "content-writer", "graphic-designer"],
+    related: ["seo-specialist", "content-writer", "graphic-designer", "digital-marketing-agency"],
   },
   {
     slug: "seo-specialist",
@@ -434,7 +434,7 @@ export const professions: Profession[] = [
       notes: "Retainer billed monthly in advance. Rankings are influenced by many factors outside our control.",
     },
     blog: ["hsn-vs-sac-codes-practical-guide", "invoice-for-international-clients-lut-export-of-services", "invoice-payment-terms-and-late-payments"],
-    related: ["social-media-manager", "content-writer", "web-developer"],
+    related: ["social-media-manager", "content-writer", "web-developer", "digital-marketing-agency"],
   },
   {
     slug: "ui-ux-designer",
@@ -756,7 +756,103 @@ export const professions: Profession[] = [
       notes: "30-day post-launch bug-fix window included. Maintenance retainer to follow at ₹25,000 per month.",
     },
     blog: ["hsn-vs-sac-codes-practical-guide", "cgst-sgst-igst-when-each-applies", "invoice-for-international-clients-lut-export-of-services"],
-    related: ["web-developer", "ui-ux-designer", "consultant"],
+    related: ["web-developer", "ui-ux-designer", "consultant", "international-freelancer"],
+  },
+  {
+    slug: "international-freelancer",
+    name: "International Freelancer",
+    title: "Export Invoice Template for Freelancers (LUT GST) | BillBuddy",
+    description:
+      "Free GST export invoice template for Indian freelancers billing international clients. Includes 0% zero-rated GST, LUT ARN format, and foreign currency notes.",
+    h1: "GST export invoice template for international freelancers",
+    intro: [
+      "Billing overseas clients from India under GST is fundamentally different from domestic invoicing. If you provide software engineering, design, consulting, writing, or other professional services to clients outside India and receive payment in convertible foreign exchange, your services qualify as an 'export of services' under Section 2(6) of the IGST Act.",
+      "Exports are treated as zero-rated supplies under Section 16 of the IGST Act. By filing a Letter of Undertaking (LUT) online in Form GST RFD-11 on the GST portal before issuing invoices, you can bill foreign clients at 0% GST without paying integrated tax upfront or claiming refunds. This template is preconfigured for export invoices with mandatory LUT ARN declarations, foreign currency conversion notes, and SAC 998314/998399.",
+    ],
+    sac: [
+      { code: "998314", label: "IT design and development services for overseas software clients" },
+      { code: "998399", label: "Other professional, technical and business services delivered internationally" },
+      { code: "998365", label: "Digital advertising, lead generation and marketing services for offshore brands" },
+    ],
+    tips: [
+      { title: "File your LUT before raising invoices", text: "Submit Form GST RFD-11 on the GST portal at the start of each financial year. An active Letter of Undertaking allows you to export services at 0% GST without paying IGST upfront." },
+      { title: "State the mandatory LUT export declaration", text: "Every export invoice must include: 'Supply meant for export under Letter of Undertaking (LUT) without payment of integrated tax' along with your LUT ARN and financial year." },
+      { title: "Obtain FIRC or e-BRC for every payment", text: "To legally qualify as an export under Section 2(6) of IGST Act, payment must be received in convertible foreign currency. Obtain a Foreign Inward Remittance Certificate (FIRC) or electronic Bank Realisation Certificate (e-BRC) from your bank or payment platform." },
+      { title: "Record foreign currency and exchange rates", text: "Invoices can show the foreign currency agreed with the client (USD, EUR, GBP), but your books and GST filings (GSTR-1 Table 6A) must record the INR equivalent using the RBI or CBIC exchange rate on the invoice date." },
+    ],
+    billing:
+      "Indian freelancers billing international clients commonly quote in foreign currency (USD, EUR, GBP) on hourly, weekly, or fixed milestone terms via wire transfer, Wise, Payoneer, or Stripe. Invoices must show 0% GST under an active LUT ARN, and inward remittance certificates should be filed systematically for GST compliance.",
+    faqs: [
+      { q: "Do I need to charge GST to international clients?", a: "No, provided your services satisfy the five conditions of 'export of services' under Section 2(6) of the IGST Act and you have filed a Letter of Undertaking (LUT). Under an active LUT, the supply is zero-rated at 0% GST." },
+      { q: "What mandatory text must appear on an export invoice under LUT?", a: "You must include the declaration: 'Supply meant for export under Letter of Undertaking (LUT) without payment of integrated tax' together with your LUT ARN and the applicable financial year." },
+      { q: "Is GST registration mandatory for freelance service exports?", a: "If your aggregate turnover across all supplies (domestic + export) is under ₹20 lakh (₹10 lakh in special category states), GST registration is not mandatory. However, to file an LUT and issue zero-rated export invoices formally, you need a GSTIN." },
+      { q: "How do I report export invoices in GSTR-1?", a: "Report export invoices under Table 6A (Exports) of GSTR-1, selecting 'Zero Rated (Without Payment of Tax)' and quoting the invoice number, shipping bill/LUT details, and taxable value in INR." },
+    ],
+    example: {
+      sellerName: "Astra Digital Solutions",
+      sellerAddress: "88, 4th Cross, Koramangala 4th Block, Bengaluru 560034",
+      sellerStateCode: "29",
+      buyerName: "Acme Cloud Technologies Inc.",
+      buyerAddress: "Suite 400, 100 Montgomery St, San Francisco, CA 94104, USA",
+      buyerStateCode: "",
+      items: [
+        { description: "Full-stack web application engineering – Sprint 14 & 15 (export under LUT)", hsn: "998314", qty: 1, rate: 125000, gstRate: 0 },
+        { description: "Cloud infrastructure automation & CI/CD deployment", hsn: "998313", qty: 1, rate: 45000, gstRate: 0 },
+      ],
+      notes: "Supply meant for export under Letter of Undertaking (LUT ARN: AD290325004812F) without payment of integrated tax. Total invoice: USD 2,000 equivalent to INR 1,70,000 at exchange rate ₹85.00/USD.",
+      terms: "Payment via wire transfer within 15 days of invoice date. Inward remittance via SWIFT / FIRC.",
+    },
+    blog: ["invoice-for-international-clients-lut-export-of-services", "hsn-vs-sac-codes-practical-guide", "do-freelancers-need-gst-registration-india"],
+    related: ["web-developer", "app-developer", "ui-ux-designer", "digital-marketing-agency"],
+  },
+  {
+    slug: "digital-marketing-agency",
+    name: "Digital Marketing Agency",
+    title: "GST Invoice Template for Digital Marketing Agencies | BillBuddy",
+    description:
+      "Free GST invoice template for digital marketing agencies in India. Pre-configured with SAC 998361 & 998365, monthly retainers, and media spend disbursements.",
+    h1: "GST invoice template for digital marketing agencies",
+    intro: [
+      "Running a digital marketing agency in India involves diverse revenue models: monthly management retainers, performance marketing fees, search engine optimization projects, and substantial client ad spends on platforms like Google Ads and Meta Ads. Invoicing these services under GST requires clear distinctions between agency fee revenue and client media disbursements.",
+      "Under GST, digital marketing and advertising services fall under SAC 998361 (advertising services) and SAC 998365 (internet advertising and lead generation), attracting 18% GST. If your agency pays client ad spend directly, handling that disbursement as a 'pure agent' under Rule 33 prevents ad budgets from inflating your taxable agency turnover. This template formats retainers and disbursements cleanly.",
+    ],
+    sac: [
+      { code: "998361", label: "Advertising services, creative campaign strategy and brand marketing" },
+      { code: "998365", label: "Internet advertising services, PPC management and paid media campaign execution" },
+      { code: "998363", label: "Sale of advertising space or time in print or digital media (agency commission)" },
+      { code: "998314", label: "Website conversion rate optimization (CRO) and landing page development" },
+    ],
+    tips: [
+      { title: "Separate management retainers from ad spend", text: "Never combine agency management fees with client media spend into a single lump sum. Bill agency service fees with 18% GST and treat client platform ad spend as a separate line item or direct client billing." },
+      { title: "Document pure agent status for pass-through spend", text: "If you pay Meta or Google ad spend on behalf of a client, fulfill all Rule 33 pure-agent conditions: maintain written client authorization, recover only exact costs, and supply original vendor tax invoices." },
+      { title: "Clearly specify monthly campaign periods", text: "Always state the billing period covered by the retainer (e.g., 'Performance Marketing Retainer – November 2026') to ensure timely GSTR-1 matching and prevent input tax credit disputes." },
+      { title: "Distinguish SEO and creative retainers", text: "Itemize creative asset production, copywriting, and technical SEO audits under separate line items so client accounting teams can properly reconcile SAC codes and deduct accurate TDS under Section 194J or 194C." },
+    ],
+    billing:
+      "Digital marketing agencies in India typically bill clients on monthly retainers payable in advance or net-15, plus milestone fees for creative campaign launches. Ad spend is ideally billed directly to client credit cards or handled via pure agent escrow agreements. Corporate clients deduct TDS at 10% (under Section 194J for technical/professional services) or 2% (under Section 194C for advertising contracts).",
+    faqs: [
+      { q: "Which SAC code applies to digital marketing agencies?", a: "Digital marketing agencies primarily use SAC 998361 (advertising services) for creative strategy and overall campaigns, and SAC 998365 for internet advertising, PPC management, and lead generation. Both carry an 18% GST rate." },
+      { q: "How should an agency handle client ad spend under GST?", a: "The safest method is having clients pay ad platforms (Google, Meta) directly with their own GSTIN. If the agency pays on the client's behalf, you must act as a 'pure agent' under Rule 33 of CGST Rules, billing actual expenses at cost without GST, supported by platform invoices." },
+      { q: "What TDS rate applies to digital marketing invoices?", a: "Clients typically deduct TDS under Section 194C (advertising contracts) at 2% for companies/firms (1% for individuals) or under Section 194J (technical/professional services) at 10% (or 2% for technical services). Clarify TDS classification in your master services agreement." },
+      { q: "Do agencies charge GST on social media influencer management?", a: "Yes. Agency management fees attract 18% GST. If the agency contracts influencers directly, input tax credit (ITC) on influencer invoices can be claimed against output GST charged to the client." },
+    ],
+    example: {
+      sellerName: "Elevate Media & Growth Labs",
+      sellerAddress: "502, Lotus Grandeur, Veera Desai Road, Andheri West, Mumbai 400053",
+      sellerStateCode: "27",
+      buyerName: "FinScale Technologies Pvt Ltd",
+      buyerAddress: "9th Floor, Cyber City, Tower B, DLF Phase 2, Gurugram 122002",
+      buyerStateCode: "06",
+      items: [
+        { description: "Monthly performance marketing & paid media management (Google & Meta Ads – Nov 2026)", hsn: "998365", qty: 1, rate: 75000, gstRate: 18 },
+        { description: "Social media content creation & creative asset pack (20 deliverables)", hsn: "998361", qty: 1, rate: 45000, gstRate: 18 },
+        { description: "SEO & conversion rate optimization technical sprint", hsn: "998314", qty: 1, rate: 30000, gstRate: 18 },
+      ],
+      notes: "Client ad spend on Meta & Google Ads is billed directly to client corporate card and excluded from taxable fee value. TDS deductible as applicable under Section 194C/194J.",
+      terms: "Payment due within 15 days of invoice date. 18% IGST applicable for inter-state service supply.",
+    },
+    blog: ["hsn-vs-sac-codes-practical-guide", "cgst-sgst-igst-when-each-applies", "invoice-payment-terms-and-late-payments"],
+    related: ["social-media-manager", "seo-specialist", "content-writer", "international-freelancer"],
   },
 ];
 
