@@ -40,9 +40,12 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
     { name: "Invoice templates", path: "/invoice-template" },
     { name: p.name, path: `/invoice-template/${p.slug}` },
   ];
-  const taxSentence = view.intra
-    ? `Both parties are in ${view.sellerState}, so the ₹${formatINR(t.totalTax)} of GST is split into CGST of ₹${formatINR(t.cgst)} and SGST of ₹${formatINR(t.sgst)}.`
-    : `The seller is in ${view.sellerState} and the client is in ${view.buyerState}, so the whole ₹${formatINR(t.totalTax)} of GST is charged as IGST.`;
+  const taxSentence =
+    t.totalTax === 0
+      ? `Because this invoice is for an international client under a Letter of Undertaking (LUT), GST is 0% (zero-rated export of services).`
+      : view.intra
+      ? `Both parties are in ${view.sellerState}, so the ₹${formatINR(t.totalTax)} of GST is split into CGST of ₹${formatINR(t.cgst)} and SGST of ₹${formatINR(t.sgst)}.`
+      : `The seller is in ${view.sellerState} and the client is in ${view.buyerState}, so the whole ₹${formatINR(t.totalTax)} of GST is charged as IGST.`;
 
   return (
     <article className="mx-auto max-w-5xl px-4 py-10">
@@ -100,15 +103,24 @@ export default async function ProfessionPage({ params }: PageProps<"/invoice-tem
         <h2>How {p.name.toLowerCase()}s usually bill</h2>
         <p>{p.billing}</p>
         <p>
-          The place of supply decides the tax type: {view.sellerState || "your state"} to {view.buyerState || "the client's state"} is {view.intra ? "an intra-state supply (CGST + SGST)" : "an inter-state supply (IGST)"}. See{" "}
-          <Link href="/blog/cgst-sgst-igst-when-each-applies">CGST vs SGST vs IGST</Link> for the full rules, or see how invoicing works{" "}
-          {stateGuide ? (
+          The place of supply decides the tax type: {t.totalTax === 0 ? (
             <>
-              in <Link href={`/gst-invoice-format/${stateGuide.slug}`}>{stateGuide.name}</Link>.
+              for international clients outside India paid in convertible foreign exchange, this qualifies as a zero-rated export of services under Section 16 of the IGST Act. See our detailed guide on{" "}
+              <Link href="/blog/invoice-for-international-clients-lut-export-of-services">invoicing international clients under LUT</Link>.
             </>
           ) : (
             <>
-              across <Link href="/gst-invoice-format">Indian states</Link>.
+              {view.sellerState || "your state"} to {view.buyerState || "the client's state"} is {view.intra ? "an intra-state supply (CGST + SGST)" : "an inter-state supply (IGST)"}. See{" "}
+              <Link href="/blog/cgst-sgst-igst-when-each-applies">CGST vs SGST vs IGST</Link> for the full rules, or see how invoicing works{" "}
+              {stateGuide ? (
+                <>
+                  in <Link href={`/gst-invoice-format/${stateGuide.slug}`}>{stateGuide.name}</Link>.
+                </>
+              ) : (
+                <>
+                  across <Link href="/gst-invoice-format">Indian states</Link>.
+                </>
+              )}
             </>
           )}
         </p>
